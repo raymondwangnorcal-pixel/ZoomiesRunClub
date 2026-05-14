@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PIE_URL, SUBSTACK_URL } from "@/lib/links";
 import { ButtonLink } from "./ButtonLink";
 import { PawPrint, RouteLine } from "./Decorative";
@@ -60,15 +61,17 @@ export function Hero() {
           <div className="zoomies-card relative overflow-hidden p-5 sm:p-7">
             <div className="rounded-[1.5rem] bg-zoomies-blue p-5 sm:p-7">
               <div className="relative min-h-[23rem] overflow-hidden rounded-[1.25rem] bg-white sm:min-h-[26rem]">
-                <RouteLine className="absolute left-1/2 top-16 h-44 w-[34rem] -translate-x-1/2 text-zoomies-gold" />
+                <Image
+                  src="/images/zoomies-community-group.png"
+                  alt="A large Zoomies Run Club community group smiling together after a run."
+                  fill
+                  sizes="(min-width: 1024px) 44vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-zoomies-charcoal/35 via-transparent to-transparent" />
                 <div className="absolute left-6 top-6 rounded-full bg-zoomies-charcoal px-4 py-2 text-sm font-black text-white">
                   Next move: show up
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-zoomies-blue to-transparent" />
-
-                <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 items-end gap-2 sm:gap-5">
-                  <RunnerFigure />
-                  <DogFigure />
                 </div>
 
                 <div className="absolute right-7 top-24 grid gap-3">
@@ -98,66 +101,5 @@ function MiniSticker({
     >
       {text}
     </div>
-  );
-}
-
-function RunnerFigure() {
-  return (
-    <svg
-      aria-label="Illustration of a runner"
-      role="img"
-      viewBox="0 0 130 220"
-      className="h-52 w-28 sm:h-64 sm:w-36"
-    >
-      <circle cx="65" cy="35" r="24" fill="#e3be6b" />
-      <path
-        d="M41 77c19-18 52-16 67 4l-12 58H46L34 97c-3-9 0-15 7-20Z"
-        fill="#232122"
-      />
-      <path
-        d="M47 137 28 198M89 137l21 61M49 91 16 128M90 92l30 22"
-        stroke="#232122"
-        strokeWidth="15"
-        strokeLinecap="round"
-      />
-      <path
-        d="M38 205h35M94 205h31"
-        stroke="#e3be6b"
-        strokeWidth="12"
-        strokeLinecap="round"
-      />
-    </svg>
-  );
-}
-
-function DogFigure() {
-  return (
-    <svg
-      aria-label="Illustration of a dog"
-      role="img"
-      viewBox="0 0 180 150"
-      className="h-36 w-40 sm:h-44 sm:w-52"
-    >
-      <path
-        d="M37 75c10-27 52-39 85-22 25 13 37 35 31 59H38c-9-10-11-23-1-37Z"
-        fill="#e3be6b"
-      />
-      <circle cx="56" cy="64" r="23" fill="#232122" />
-      <path d="M40 46 18 21c-6 23-1 39 16 49Z" fill="#232122" />
-      <path d="M73 46 93 20c8 22 3 40-13 50Z" fill="#232122" />
-      <circle cx="48" cy="62" r="4" fill="#ffffff" />
-      <path
-        d="M83 101v34M125 101v34M34 106l-19 20M151 72l21-20"
-        stroke="#232122"
-        strokeWidth="11"
-        strokeLinecap="round"
-      />
-      <path
-        d="M79 139h24M121 139h24"
-        stroke="#232122"
-        strokeWidth="9"
-        strokeLinecap="round"
-      />
-    </svg>
   );
 }

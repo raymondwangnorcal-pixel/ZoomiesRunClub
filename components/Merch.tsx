@@ -16,8 +16,8 @@ export function Merch() {
           <div className="relative grid gap-0 lg:grid-cols-[1.08fr_0.92fr]">
             <div className="relative min-h-[24rem] overflow-hidden lg:min-h-[34rem]">
               <Image
-                src="/images/zoomies-hoodies.png"
-                alt="Three Zoomies Run Club members wearing light blue Zoomies hoodies."
+                src="/images/zoomies-hoodie-product.webp"
+                alt="A light blue Zoomies Run Club hoodie hanging on a rack."
                 fill
                 sizes="(min-width: 1024px) 54vw, 100vw"
                 className="object-cover"
