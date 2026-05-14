@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --zoomies-gold: #e3be6b;
+  --zoomies-gray: #a7adaf;
+  --zoomies-blue: #e0edf5;
+  --zoomies-white: #ffffff;
+  --zoomies-charcoal: #232122;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--zoomies-white);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(227, 190, 107, 0.22), transparent 28rem),
+    linear-gradient(180deg, var(--zoomies-blue) 0%, var(--zoomies-white) 34rem);
+  color: var(--zoomies-charcoal);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+::selection {
+  background: var(--zoomies-gold);
+  color: var(--zoomies-charcoal);
+}
+
+@layer base {
+  a {
+    @apply transition-colors;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--zoomies-gold);
+    outline-offset: 4px;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24;
+  }
+
+  .zoomies-card {
+    @apply rounded-[2rem] border border-zoomies-gray/35 bg-white shadow-soft;
+  }
+
+  .sticker {
+    @apply inline-flex rotate-[-2deg] items-center gap-2 rounded-full border border-zoomies-charcoal bg-zoomies-gold px-4 py-2 text-sm font-extrabold text-zoomies-charcoal shadow-sticker;
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-zoomies-gold px-6 py-3 text-sm font-extrabold text-zoomies-charcoal shadow-sticker transition duration-200 hover:-translate-y-0.5 hover:bg-[#f0ce7d];
+  }
+
+  .button-dark {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-zoomies-charcoal px-6 py-3 text-sm font-extrabold text-white shadow-sticker transition duration-200 hover:-translate-y-0.5 hover:bg-[#363334];
+  }
+
+  .button-outline {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-zoomies-charcoal bg-white/75 px-6 py-3 text-sm font-extrabold text-zoomies-charcoal transition duration-200 hover:-translate-y-0.5 hover:bg-white;
+  }
+}
