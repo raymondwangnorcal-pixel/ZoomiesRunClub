@@ -6,7 +6,7 @@ Last updated: 2026-05-14
 
 Build a polished, production-ready website for Zoomies Run Club NYC, designed to deploy on Vercel.
 
-The initial implementation is complete: the repository now contains a Next.js App Router site with TypeScript, Tailwind CSS, reusable components, SEO metadata, centralized external links, sample event-format data, and the requested homepage sections. The merch section now uses the provided real Zoomies hoodie photo asset.
+The initial implementation is complete: the repository now contains a Next.js App Router site with TypeScript, Tailwind CSS, reusable components, SEO metadata, centralized external links, sample event-format data, and the requested homepage sections. The merch section now uses the provided real Zoomies hoodie photo asset. The Pie, Substack, and Shopify sections have been revised so each has a distinct layout, visual motif, emotional hook, and CTA job.
 
 ## Product Summary
 
@@ -116,11 +116,9 @@ The homepage includes:
 - Decorative code-native route line, paw motifs, runner/dog illustration, and sticker-style details.
 - About section covering sisters, friends, dogs, community, fun running, no pace pressure, no gatekeeping, no one left behind, and show-up-as-you-are movement.
 - How it works section with the required five steps.
-- Upcoming runs section that clearly says live events are announced on Pie and Substack.
-- Three clearly labeled `Sample event format` cards in `lib/events.ts`.
-- Prominent Substack newsletter section titled `Be first to know.`
-- Merch preview section titled `Zoomies gear.`
-- Shopify CTA and a `Zoomies Hoodie` preview with `$30` shown as a current store preview.
+- Pie/events section is now an action-oriented run invite with headline `Ready to show up? RSVP for the next Zoomies run.`, a `Join the next run` CTA, motion-inspired route visuals, and a sample event flow for check-in, route, pace optional, and post-run hang.
+- Substack/updates section is now an insider-style club dispatch with headline `Get the first word on runs, collabs, merch drops, and community stories.`, bulletin-note styling, and a `Subscribe for updates` CTA.
+- Merch/Shopify section is now a product drop/lookbook with headline `Wear the zoomies.`, the hoodie photo, drop notes, a `Shop merch` CTA, and current store preview price copy.
 - Merch preview image uses `public/images/zoomies-hoodies.png`.
 - Community cards for the six required values.
 - FAQ with all required questions and answers.
@@ -205,6 +203,8 @@ Implementation notes:
 - Did not implement newsletter capture; newsletter CTA links out to Substack.
 - Used code-native SVG/CSS visuals for route lines, paw prints, runner/dog illustration, and merch preview.
 - Replaced the code-native merch hoodie illustration with the provided real hoodie photo using `next/image`.
+- Reworked the Pie, Substack, and Shopify sections to avoid repeated simple-card structures and repeated CTA/copy patterns.
+- Kept Pie as the single event RSVP destination, Substack as the updates/newsletter destination, and Shopify as the merch destination.
 - Opened external CTAs in a new tab with `target="_blank"` and `rel="noreferrer"`.
 
 ## Current State Of The Code
@@ -227,6 +227,10 @@ Commands run:
 - `curl -I http://localhost:3000` returned `HTTP/1.1 200 OK` after being allowed outside the sandbox.
 - `curl http://localhost:3000` returned the rendered homepage HTML.
 - Browser rendered QA confirmed the merch photo alt text is present once, `Checkout lives on Shopify` is absent, `Contact @zoomiesrunclub on Instagram!` is present, and there are no console warnings/errors.
+- After the section redesign, `npm run typecheck` succeeded.
+- After the section redesign, `npm run build` succeeded.
+- Browser DOM QA at desktop confirmed the new Pie, Substack, and Merch headlines/CTAs/motifs are present, the old repeated headlines are absent, and there are no console warnings/errors.
+- Browser DOM QA at a 390px mobile viewport confirmed the new headlines and CTAs are present, old repeated headlines are absent, and there are no console warnings/errors.
 
 Notes:
 
@@ -238,7 +242,7 @@ Notes:
 
 - The real Instagram URL has not been provided; `INSTAGRAM_URL` is currently a placeholder.
 - Browser UI verification through Chrome was attempted, but Chrome was noisy with many existing user tabs; verification was completed through build/typecheck and direct local HTTP checks instead.
-- A later Browser plugin QA pass verified the merch and footer updates; one footer screenshot capture timed out, but DOM and console checks succeeded.
+- Browser plugin QA verified the merch/footer updates and the later section redesign via DOM and console checks. Browser screenshot capture timed out during this session, but DOM, console, typecheck, and build checks succeeded.
 - No deployment has been created yet.
 - The merch section now has a real Zoomies hoodie photo. Other visual elements still use code-native illustration and decorative assets.
 

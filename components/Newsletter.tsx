@@ -2,6 +2,14 @@ import { SUBSTACK_URL } from "@/lib/links";
 import { ButtonLink } from "./ButtonLink";
 import { PawPrint } from "./Decorative";
 
+const dispatchItems = [
+  "Behind-the-scenes notes",
+  "Event announcements",
+  "Collab news",
+  "Merch drops",
+  "Community spotlights",
+];
+
 export function Newsletter() {
   return (
     <section
@@ -10,27 +18,61 @@ export function Newsletter() {
       aria-labelledby="newsletter-title"
     >
       <div className="section-shell">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-white/15 bg-gradient-to-br from-white/12 via-white/[0.04] to-zoomies-gold/20 p-6 shadow-soft sm:p-10 lg:p-14">
-          <PawPrint className="absolute -right-8 -top-8 size-44 rotate-12 text-zoomies-gold/20" />
-          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div className="max-w-3xl">
-              <p className="mb-4 text-sm font-extrabold uppercase tracking-normal text-zoomies-gold">
-                Newsletter
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+          <div className="relative">
+            <div className="absolute -left-4 -top-4 h-full w-full rounded-[2rem] border border-zoomies-gold/35" />
+            <div className="relative rotate-[-1deg] rounded-[2rem] border border-zoomies-charcoal bg-white p-6 text-zoomies-charcoal shadow-sticker sm:p-8">
+              <div className="flex items-start justify-between gap-5 border-b border-zoomies-gray/35 pb-5">
+                <div>
+                  <p className="text-sm font-black uppercase tracking-normal text-zoomies-gray">
+                    Club dispatch
+                  </p>
+                  <p className="mt-2 font-black">From the Zoomies notebook</p>
+                </div>
+                <span className="rounded-full bg-zoomies-gold px-4 py-2 text-sm font-black">
+                  Substack
+                </span>
+              </div>
+
+              <p className="mt-7 text-2xl font-black leading-tight sm:text-3xl">
+                A note from the club before it becomes a post, a meetup, a
+                collab, or a hoodie sighting.
               </p>
-              <h2
-                id="newsletter-title"
-                className="text-balance text-4xl font-black leading-[1.02] tracking-normal sm:text-5xl lg:text-6xl"
-              >
-                Be first to know.
-              </h2>
-              <p className="mt-6 text-pretty text-lg font-medium leading-8 text-white/78 sm:text-xl">
-                Upcoming runs, themed meetups, collabs, merch drops, pop-ups,
-                and community updates land on Substack first.
-              </p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {dispatchItems.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-3xl border border-zoomies-gray/35 bg-zoomies-blue/55 px-4 py-3 text-sm font-extrabold"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+              <PawPrint className="absolute -bottom-7 -right-5 size-28 rotate-12 text-zoomies-gold/30" />
             </div>
-            <ButtonLink href={SUBSTACK_URL} variant="primary">
-              Subscribe on Substack
-            </ButtonLink>
+          </div>
+
+          <div className="lg:pl-8">
+            <p className="mb-4 inline-flex rounded-full border border-white/20 px-4 py-2 text-sm font-black text-zoomies-gold">
+              Stay in the loop
+            </p>
+            <h2
+              id="newsletter-title"
+              className="text-balance text-4xl font-black leading-[1.02] tracking-normal sm:text-5xl lg:text-6xl"
+            >
+              Get the first word on runs, collabs, merch drops, and community
+              stories.
+            </h2>
+            <p className="mt-6 max-w-2xl text-pretty text-lg font-medium leading-8 text-white/75 sm:text-xl">
+              Substack is where the warm-up starts: event announcements,
+              behind-the-scenes notes, partner news, drop alerts, and little
+              snapshots of the people who make Zoomies feel like Zoomies.
+            </p>
+            <div className="mt-8">
+              <ButtonLink href={SUBSTACK_URL} variant="primary">
+                Subscribe for updates
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </div>
