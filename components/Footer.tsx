@@ -30,7 +30,7 @@ export function Footer() {
             Shopify.
           </p>
           <p className="mt-4 text-sm font-bold text-white/58">
-            Contact placeholder: hello@zoomiesrunclub.nyc
+            Contact @zoomiesrunclub on Instagram!
           </p>
         </div>
 

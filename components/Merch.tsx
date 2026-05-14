@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SHOPIFY_URL } from "@/lib/links";
 import { ButtonLink } from "./ButtonLink";
 import { PawPrint } from "./Decorative";
@@ -23,19 +24,17 @@ export function Merch() {
           </div>
         </div>
 
-        <div className="zoomies-card relative overflow-hidden bg-zoomies-blue p-6 sm:p-8">
+        <div className="zoomies-card relative overflow-hidden bg-zoomies-blue p-5 sm:p-8">
           <PawPrint className="absolute -right-8 top-10 size-36 rotate-12 text-white/70" />
-          <div className="relative grid gap-6 sm:grid-cols-[0.9fr_1.1fr] sm:items-center">
-            <div className="rounded-[2rem] bg-white p-6 shadow-soft">
-              <div className="relative mx-auto aspect-[4/5] max-w-64 rounded-[2rem] bg-zoomies-charcoal p-6 shadow-sticker">
-                <div className="absolute left-1/2 top-10 h-10 w-24 -translate-x-1/2 rounded-b-full border-x-[18px] border-b-[18px] border-zoomies-blue bg-zoomies-charcoal" />
-                <div className="absolute inset-x-8 top-20 bottom-8 rounded-[2rem] bg-zoomies-charcoal" />
-                <div className="absolute left-8 top-24 h-32 w-10 -rotate-12 rounded-full bg-zoomies-charcoal" />
-                <div className="absolute right-8 top-24 h-32 w-10 rotate-12 rounded-full bg-zoomies-charcoal" />
-                <div className="absolute left-1/2 top-36 grid size-24 -translate-x-1/2 place-items-center rounded-full border-4 border-zoomies-gold text-center text-lg font-black leading-none text-zoomies-gold">
-                  ZRC
-                </div>
-              </div>
+          <div className="relative grid gap-6 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <div className="relative aspect-[1.45/1] overflow-hidden rounded-[1.65rem] border border-white/80 bg-white shadow-soft sm:aspect-[1.7/1]">
+              <Image
+                src="/images/zoomies-hoodies.png"
+                alt="Three Zoomies Run Club members wearing light blue Zoomies hoodies."
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                className="object-cover"
+              />
             </div>
 
             <div>
@@ -51,9 +50,6 @@ export function Merch() {
               <p className="mt-5 text-base font-medium leading-7 text-zoomies-charcoal/68">
                 A cozy layer for pre-run coffee, post-run hangs, and all the
                 in-between miles.
-              </p>
-              <p className="mt-5 text-xs font-bold uppercase tracking-normal text-zoomies-charcoal/55">
-                Checkout lives on Shopify
               </p>
             </div>
           </div>

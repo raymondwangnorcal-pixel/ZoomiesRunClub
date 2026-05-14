@@ -6,7 +6,7 @@ Last updated: 2026-05-14
 
 Build a polished, production-ready website for Zoomies Run Club NYC, designed to deploy on Vercel.
 
-The initial implementation is complete: the repository now contains a Next.js App Router site with TypeScript, Tailwind CSS, reusable components, SEO metadata, centralized external links, sample event-format data, and the requested homepage sections.
+The initial implementation is complete: the repository now contains a Next.js App Router site with TypeScript, Tailwind CSS, reusable components, SEO metadata, centralized external links, sample event-format data, and the requested homepage sections. The merch section now uses the provided real Zoomies hoodie photo asset.
 
 ## Product Summary
 
@@ -121,9 +121,10 @@ The homepage includes:
 - Prominent Substack newsletter section titled `Be first to know.`
 - Merch preview section titled `Zoomies gear.`
 - Shopify CTA and a `Zoomies Hoodie` preview with `$30` shown as a current store preview.
+- Merch preview image uses `public/images/zoomies-hoodies.png`.
 - Community cards for the six required values.
 - FAQ with all required questions and answers.
-- Footer with `Get your zoomies on.`, Pie/Substack/Shopify/Instagram links, and a contact placeholder.
+- Footer with `Get your zoomies on.`, Pie/Substack/Shopify/Instagram links, and `Contact @zoomiesrunclub on Instagram!`.
 
 ## Brand And Design Direction
 
@@ -159,6 +160,7 @@ Implementation notes:
 - `app/globals.css`
 - `components/*`
 - `lib/*`
+- Provided hoodie screenshot at `/var/folders/.../Screenshot 2026-05-13 at 11.50.10 PM.png`
 
 ## Files Modified
 
@@ -190,6 +192,7 @@ Implementation notes:
 - `components/SectionHeading.tsx`
 - `lib/links.ts`
 - `lib/events.ts`
+- `public/images/zoomies-hoodies.png`
 
 ## Important Implementation Decisions
 
@@ -201,6 +204,7 @@ Implementation notes:
 - Did not implement live event fetching; events link out to Pie.
 - Did not implement newsletter capture; newsletter CTA links out to Substack.
 - Used code-native SVG/CSS visuals for route lines, paw prints, runner/dog illustration, and merch preview.
+- Replaced the code-native merch hoodie illustration with the provided real hoodie photo using `next/image`.
 - Opened external CTAs in a new tab with `target="_blank"` and `rel="noreferrer"`.
 
 ## Current State Of The Code
@@ -222,6 +226,7 @@ Commands run:
 - `npm run dev` succeeded after being allowed to bind to port 3000.
 - `curl -I http://localhost:3000` returned `HTTP/1.1 200 OK` after being allowed outside the sandbox.
 - `curl http://localhost:3000` returned the rendered homepage HTML.
+- Browser rendered QA confirmed the merch photo alt text is present once, `Checkout lives on Shopify` is absent, `Contact @zoomiesrunclub on Instagram!` is present, and there are no console warnings/errors.
 
 Notes:
 
@@ -232,15 +237,15 @@ Notes:
 ## Known Bugs, Gaps, Or Risks
 
 - The real Instagram URL has not been provided; `INSTAGRAM_URL` is currently a placeholder.
-- The footer contact is a placeholder.
 - Browser UI verification through Chrome was attempted, but Chrome was noisy with many existing user tabs; verification was completed through build/typecheck and direct local HTTP checks instead.
+- A later Browser plugin QA pass verified the merch and footer updates; one footer screenshot capture timed out, but DOM and console checks succeeded.
 - No deployment has been created yet.
-- No real image assets from Zoomies have been added; the current visual system uses code-native illustration and decorative assets.
+- The merch section now has a real Zoomies hoodie photo. Other visual elements still use code-native illustration and decorative assets.
 
 ## Exact Next Steps
 
 1. Replace `INSTAGRAM_URL` with the official Zoomies Instagram URL when provided.
-2. Replace the footer contact placeholder with the official contact channel when provided.
-3. Optionally add real brand/photo assets if the user provides them.
+2. Optionally add more real brand/photo assets if the user provides them.
+3. Re-run visual QA on deployed preview after Vercel deployment.
 4. Deploy to Vercel when ready.
 5. If requested, connect a custom domain and add final production Open Graph image assets.
