@@ -52,16 +52,16 @@ export function HowItWorks() {
           </div>
         </div>
 
-        <ol className="mt-12 grid gap-4 md:grid-cols-5">
+        <ol className="mt-16 grid gap-x-4 gap-y-14 md:grid-cols-5">
           {steps.map((step, index) => (
             <li
               key={step.title}
-              className="zoomies-card relative min-h-56 overflow-hidden p-5"
+              className="zoomies-card relative min-h-56 overflow-visible p-5"
             >
-              <span className="absolute -right-2 -top-5 text-7xl font-black text-zoomies-gold/45">
+              <span className="pointer-events-none absolute -top-10 right-5 z-20 select-none text-7xl font-black leading-none text-zoomies-gold/75 drop-shadow-[0_3px_0_rgba(255,255,255,0.95)]">
                 {index + 1}
               </span>
-              <div className="relative">
+              <div className="relative z-10">
                 <p className="text-xl font-black">{step.title}</p>
                 <p className="mt-4 text-sm font-medium leading-6 text-zoomies-charcoal/68">
                   {step.copy}

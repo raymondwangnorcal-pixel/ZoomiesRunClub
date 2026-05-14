@@ -8,7 +8,7 @@ Build a polished, production-ready website for Zoomies Run Club NYC, designed to
 
 The initial implementation is complete: the repository now contains a Next.js App Router site with TypeScript, Tailwind CSS, reusable components, SEO metadata, centralized external links, sample event-format data, and the requested homepage sections. The Pie, Substack, and Shopify sections have been revised so each has a distinct layout, visual motif, emotional hook, and CTA job.
 
-Latest revision: the hero visual now uses the provided large Zoomies community group photo while preserving the sticker text boxes (`NYC, easy pace`, `Next move: show up`, `No pressure`, `No gatekeeping`, `No one left behind`, and `Stay for the hang`). The Substack/newsletter visual now uses the provided `Substack image for Zoomies.webp` asset, and the paragraph beginning `Substack is where the warm-up starts` has been removed. The merch visual now uses the provided `Zoomies Hoodie.webp` asset.
+Latest revision: the hero visual now uses the provided large Zoomies community group photo while preserving only the outer sticker text boxes (`NYC, easy pace` and `Stay for the hang`). The inner hero labels `Next move: show up`, `No pressure`, `No gatekeeping`, and `No one left behind` have been removed. The How It Works step numbers have been shifted above the card boxes as a visible layer while the card text stays in its own readable layer. The Substack/newsletter visual uses the provided `Substack image for Zoomies.webp` asset, and the paragraph beginning `Substack is where the warm-up starts` has been removed. The merch visual uses the provided `Zoomies Hoodie.webp` asset.
 
 ## Product Summary
 
@@ -114,10 +114,11 @@ Project guidance:
 The homepage includes:
 
 - Sticky responsive navigation with Home, About, Runs, Newsletter, Merch, FAQ, and `Join next run`.
-- Hero with `Presence > pace.`, required subheadline, required badge, Pie CTA, Substack CTA, the provided community group photo, and sticker-style details.
+- Hero with `Presence > pace.`, required subheadline, required badge, Pie CTA, Substack CTA, the provided community group photo, and the outer `NYC, easy pace` / `Stay for the hang` stickers.
 - Decorative code-native route line and paw motifs remain around the hero.
 - About section covering sisters, friends, dogs, community, fun running, no pace pressure, no gatekeeping, no one left behind, and show-up-as-you-are movement.
 - How it works section with the required five steps.
+- How It Works step numbers are visible above the card boxes, with the text kept on a separate readable layer.
 - Pie/events section is now an action-oriented run invite with headline `Ready to show up? RSVP for the next Zoomies run.`, a `Join the next run` CTA, motion-inspired route visuals, and a sample event flow for check-in, route, pace optional, and post-run hang.
 - Substack/updates section is now an insider-style club dispatch with headline `Get the first word on runs, collabs, merch drops, and community stories.`, the provided Substack image asset, and a `Subscribe for updates` CTA.
 - Merch/Shopify section is now a product drop/lookbook with headline `Wear the zoomies.`, the provided single hoodie product photo, drop notes, a `Shop merch` CTA, and current store preview price copy.
@@ -212,7 +213,9 @@ Implementation notes:
 - Did not implement live event fetching; events link out to Pie.
 - Did not implement newsletter capture; newsletter CTA links out to Substack.
 - Used code-native SVG/CSS visuals for route lines and paw prints.
-- Replaced the hero runner/dog illustration with the provided large community group photo while keeping the requested sticker text boxes.
+- Replaced the hero runner/dog illustration with the provided large community group photo while keeping only the requested outer sticker text boxes.
+- Removed the inner hero labels `Next move: show up`, `No pressure`, `No gatekeeping`, and `No one left behind`.
+- Moved the How It Works step numbers from clipped card corners to a visible above-card layer and increased vertical spacing between rows.
 - Replaced the Substack section's generated dispatch card with the provided `Substack image for Zoomies.webp` asset.
 - Removed the Substack paragraph beginning `Substack is where the warm-up starts`.
 - Replaced the code-native merch hoodie illustration with the provided real hoodie photo using `next/image`.
@@ -251,6 +254,12 @@ Commands run:
 - `curl -I http://localhost:3000` returned `HTTP/1.1 200 OK` when run with local network permission.
 - Local rendered HTML checks confirmed the hero group image, hero sticker labels, Substack image, merch hoodie product image, and required alt text are present.
 - Local rendered HTML checks confirmed the removed Substack sentence and old merch image reference are absent.
+- After removing inner hero labels, `npm run typecheck` succeeded.
+- After removing inner hero labels, `npm run build` succeeded.
+- Scoped rendered HTML checks for the `#home` section confirmed `NYC, easy pace` and `Stay for the hang` remain, while `Next move: show up`, `No pressure`, `No gatekeeping`, and `No one left behind` are absent from the first section.
+- After shifting the How It Works step numbers, `npm run typecheck` succeeded.
+- After shifting the How It Works step numbers, `npm run build` succeeded.
+- Scoped rendered HTML checks for `#how-it-works` confirmed the cards use `overflow-visible`, the numbers use the visible `-top-10 right-5 z-20` layer, text uses `relative z-10`, and the old clipped `-right-2 -top-5` positioning is gone.
 
 Notes:
 

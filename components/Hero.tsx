@@ -70,36 +70,11 @@ export function Hero() {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-zoomies-charcoal/35 via-transparent to-transparent" />
-                <div className="absolute left-6 top-6 rounded-full bg-zoomies-charcoal px-4 py-2 text-sm font-black text-white">
-                  Next move: show up
-                </div>
-
-                <div className="absolute right-7 top-24 grid gap-3">
-                  <MiniSticker text="No pressure" />
-                  <MiniSticker text="No gatekeeping" rotate="rotate-3" />
-                  <MiniSticker text="No one left behind" rotate="-rotate-2" />
-                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function MiniSticker({
-  text,
-  rotate = "-rotate-3",
-}: {
-  text: string;
-  rotate?: string;
-}) {
-  return (
-    <div
-      className={`${rotate} rounded-full border border-zoomies-charcoal bg-white px-3 py-2 text-xs font-black shadow-sm`}
-    >
-      {text}
-    </div>
   );
 }
